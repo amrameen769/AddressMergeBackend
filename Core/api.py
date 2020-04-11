@@ -31,6 +31,9 @@ class SponsorGroupViewSet(viewsets.ModelViewSet):
 # CandidateViewSet
 class CandidateViewSet(viewsets.ModelViewSet):
     queryset = Candidates.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
 
     serializer_class = CandidateSerializer
 
