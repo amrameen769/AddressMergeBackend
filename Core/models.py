@@ -15,7 +15,7 @@ class Sponsors(models.Model):
     firstName = models.CharField(max_length=100)
     lastName = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, unique=True)
-    phoneNo = models.BigIntegerField()
+    phoneNo = models.CharField(max_length=15)
     address = models.TextField(blank=True)
     country = models.CharField(max_length=100, blank=True)
     region = models.CharField(max_length=100, blank=True)
@@ -43,7 +43,7 @@ class Candidates(models.Model):
     candidateCategory = models.ForeignKey(CandidateCategory, related_name="candidateCategoryName",
                                           on_delete=models.CASCADE, null=True)
     email = models.EmailField(max_length=100, unique=True)
-    phoneNo = models.BigIntegerField()
+    phoneNo = models.CharField(max_length=15)
     address = models.TextField(blank=True)
     country = models.CharField(max_length=100, blank=True)
     region = models.CharField(max_length=100, blank=True)
