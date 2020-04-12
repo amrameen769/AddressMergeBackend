@@ -51,6 +51,9 @@ class CandidateCategoryViewSet(viewsets.ModelViewSet):
 # DonationsViewSet
 class DonationsViewSet(viewsets.ModelViewSet):
     queryset = Donations.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
 
     serializer_class = DonationsSerializer
 
