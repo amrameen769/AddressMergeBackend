@@ -3,9 +3,19 @@
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="AddressMergeAPI" uuid="402c0847-315a-45fc-933d-534ab8017c8e">
       <driver-ref>mariadb</driver-ref>
-      <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mariadb://localhost:3306/db_addressmerge_api</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="16d787a0-5e2e-4bb8-baff-b41328c5b34c">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/Backend/settings.py</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/db_addressmerge_api</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="UTC" />
+      </driver-properties>
     </data-source>
   </component>
 </project>
