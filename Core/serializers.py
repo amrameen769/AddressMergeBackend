@@ -52,4 +52,4 @@ class DonationsSerializer(serializers.ModelSerializer):
 class DocumentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Documents
-        fields = ['docContent', 'owner']
+        fields = ['id', 'docName', 'docContent', 'owner']

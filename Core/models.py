@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django_ckeditor_5.fields import CKEditor5Field
 
 # Create your models here.
 
@@ -81,7 +81,7 @@ class DocumentTypes(models.Model):
 class Documents(models.Model):
     docName = models.CharField(max_length=100)
     docType = models.ForeignKey(DocumentTypes, related_name="documentType", on_delete=models.CASCADE, null=True)
-    docContent = models.TextField(blank=True)
+    docContent = CKEditor5Field('Text', config_name='extends')
     lastEdited = models.DateTimeField(auto_now_add=True)
     isTemplate = models.BooleanField(default=False)
     owner = models.ForeignKey(User, related_name="documents", on_delete=models.CASCADE, null=True)
