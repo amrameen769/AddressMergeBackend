@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Core.models import Sponsors, SponsorGroup, Candidates, CandidateCategory, Donations
+from Core.models import Sponsors, SponsorGroup, Candidates, CandidateCategory, Donations, Documents, DocumentTypes
 
 
 # Sponsor Serializer
@@ -45,4 +45,21 @@ class DonationsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Donations
+        fields = '__all__'
+
+
+# DocumentsSerializer
+class DocumentsSerializer(serializers.ModelSerializer):
+    authorName = serializers.StringRelatedField(source='owner', many=False)
+    documentType = serializers.StringRelatedField(source='docType', many=False)
+
+    class Meta:
+        model = Documents
+        fields = '__all__'
+
+
+# DocumentTypesSerializer
+class DocumentTypesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DocumentTypes
         fields = '__all__'

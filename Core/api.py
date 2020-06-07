@@ -1,8 +1,8 @@
 from rest_framework import viewsets, permissions
 
-from .models import Sponsors, SponsorGroup, Candidates, CandidateCategory, Donations
+from .models import Sponsors, SponsorGroup, Candidates, CandidateCategory, Donations, Documents, DocumentTypes
 from .serializers import SponsorSerializer, SponsorGroupSerializer, CandidateSerializer, CandidateCategorySerializer, \
-    DonationsSerializer
+    DonationsSerializer, DocumentsSerializer, DocumentTypesSerializer
 
 
 # Sponsor ViewSet
@@ -59,3 +59,23 @@ class DonationsViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+# DocumentsViewSet
+class DocumentsViewSet(viewsets.ModelViewSet):
+    queryset = Documents.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+
+    serializer_class = DocumentsSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+# DocumentTypesViewSet
+class DocumentTypesViewSet(viewsets.ModelViewSet):
+    queryset = DocumentTypes.objects.all()
+
+    serializer_class = DocumentTypesSerializer
