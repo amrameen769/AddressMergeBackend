@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django_ckeditor_5.fields import CKEditor5Field
 
+
 # Create your models here.
 
 class SponsorGroup(models.Model):
@@ -84,7 +85,7 @@ class Documents(models.Model):
     docContent = CKEditor5Field('Text', config_name='extends')
     lastEdited = models.DateTimeField(auto_now_add=True)
     isTemplate = models.BooleanField(default=False)
-    owner = models.ForeignKey(User, related_name="documents", on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey(User, related_name="authorName", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.docName
