@@ -9,7 +9,7 @@ from .serializers import SponsorSerializer, SponsorGroupSerializer, CandidateSer
 class SponsorViewSet(viewsets.ModelViewSet):
     queryset = Sponsors.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
 
     serializer_class = SponsorSerializer
@@ -24,6 +24,9 @@ class SponsorViewSet(viewsets.ModelViewSet):
 # SponsorGroupViewSet
 class SponsorGroupViewSet(viewsets.ModelViewSet):
     queryset = SponsorGroup.objects.all()
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
 
     serializer_class = SponsorGroupSerializer
 
@@ -32,7 +35,7 @@ class SponsorGroupViewSet(viewsets.ModelViewSet):
 class CandidateViewSet(viewsets.ModelViewSet):
     queryset = Candidates.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
 
     serializer_class = CandidateSerializer
@@ -44,6 +47,9 @@ class CandidateViewSet(viewsets.ModelViewSet):
 # CandidateCategoryViewSet
 class CandidateCategoryViewSet(viewsets.ModelViewSet):
     queryset = CandidateCategory.objects.all()
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
 
     serializer_class = CandidateCategorySerializer
 
@@ -52,7 +58,7 @@ class CandidateCategoryViewSet(viewsets.ModelViewSet):
 class DonationsViewSet(viewsets.ModelViewSet):
     queryset = Donations.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
 
     serializer_class = DonationsSerializer
@@ -65,7 +71,7 @@ class DonationsViewSet(viewsets.ModelViewSet):
 class DocumentsViewSet(viewsets.ModelViewSet):
     queryset = Documents.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
 
     serializer_class = DocumentsSerializer
